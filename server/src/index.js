@@ -3,6 +3,8 @@ const app = express()
 const port = 8000
 
 const userRoute=require('./routes/users')
+const connect = require('./db/connection')
+connect()
 app.use(userRoute)
 
 app.listen(port, () => {
