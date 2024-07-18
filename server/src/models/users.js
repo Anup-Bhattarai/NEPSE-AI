@@ -2,21 +2,29 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  fullname: { type: String, required: true }, 
-  email: { type: String, required: true, unique: true },
-  phoneNo: { type: String, required: true },
+  fullName: { 
+    type: String
+  },
+  email: { 
+    type: String
+  },
+  phoneNo: { 
+    type: String
+  },
   gender: {
     type: String,
-    enum : ['Male', 'Female', 'Others'],
-    required: true
+    enum: ['Male', 'Female', 'Others']
   },
   role: {
     type: String,
-    enum : ['User', 'Admin'],
-    required: true
+    enum: ['User', 'ASdmin']
   },
-  password: { type: String, required: true }
-}, { timestamps: true });
+  password: { 
+    type: String
+  }
+});
+
 
 const User = mongoose.model('User', userSchema);
+
 module.exports = User;
