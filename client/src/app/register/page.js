@@ -49,7 +49,7 @@ const SignupForm = () => {
         <div className="flex justify-center mb-6">
           <Image
             src="./nepseai.png"
-            style={{ width: '100%', height: 'auto', maxWidth: '250px' }} // Increased maxWidth to 250px
+            style={{ width: '100%', height: 'auto', maxWidth: '250px' }} 
           />
         </div>
         <form onSubmit={formik.handleSubmit}>

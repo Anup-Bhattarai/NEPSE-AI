@@ -5,6 +5,7 @@ const User = require('../models/users')
 
 const registerNewUser=(req, res) => {
     User.create(req.body)
+    console.log(req.body)
     res.send("Congrats!,New User has been added ");
 
 }

@@ -12,12 +12,12 @@ const userSchema = new Schema({
     type: String
   },
   gender: {
-    type: String,
-    enum: ['Male', 'Female', 'Others']
+    
+    enum: ['Male', 'Female', 'Others'],
   },
   role: {
-    type: String,
-    enum: ['User', 'Admin']
+    
+  enum: ['User', 'Admin'],
   },
   password: { 
     type: String
