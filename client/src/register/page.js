@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from "axios";
+import {Select, SelectItem} from "@nextui-org/react";
 
 const Register = () => {
   const LoginSchema = Yup.object().shape({
@@ -13,7 +14,7 @@ const Register = () => {
       .min(2, 'Too Short!')
       .max(50, 'Too Long!')
       .required('Required'),
-    phone: Yup.string()
+    phoneNo: Yup.string()
       .min(9, 'Too Short!')
       .max(11, 'Too Long!')
       .required('Required'),
@@ -33,20 +34,23 @@ const Register = () => {
   const formik = useFormik({
     initialValues: {
       fullname: '',
-      phone: '',
+      phoneNo: '',
       email: '',
       password: '',
       confirm_password: '',
       gender: '',
+      role: '',
     },
     validationSchema: LoginSchema,
     onSubmit: values => {
       registerUser(values)
      },
     });
-    const registerUser=(values)=>{
-      axios.post('http://localhost:3000/register',values)
-    }
+    const registerUser =async (values)=>{
+      const {data}= await  axios.post(`${process.env.NEXT_PUBLIC_API_URL}/register`, values)
+      if(data)
+        { alert("registered successfully")
+        }
 
   return (
     <form onSubmit={formik.handleSubmit} className="flex justify-center items-center min-h-screen bg-gray-50 p-4">
@@ -142,6 +146,10 @@ const Register = () => {
             
           </RadioGroup>
           {formik.errors.gender}
+          <Select name="role" onChange={(e)=>formik.setFieldValue('role', e.target.value)}>
+            <SelectItem key="User">Recruiter</SelectItem>
+            <SelectItem key="Admin">Freelancer</SelectItem>
+        </Select>
         </div>
         <button 
           type="submit" 
