@@ -1,4 +1,5 @@
-'use client'
+'use client';
+
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -12,7 +13,7 @@ const SignupForm = () => {
     phoneNo: Yup.string()
       .matches(/^\d{10}$/, 'Phone Number must be exactly 10 digits')
       .required('Phone Number is required'),
-    password: Yup.string().min(10, 'Password must be at least 8 characters').required('Password is required'),
+    password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password is required'),
     gender: Yup.string().required('Gender is required'),
     role: Yup.string().required('Role is required'),
   });
@@ -48,7 +49,7 @@ const SignupForm = () => {
         <div className="flex justify-center mb-6">
           <Image
             src="./nepseai.png"
-            style={{ width: '100%', height: 'auto', maxWidth: '150px' }}
+            style={{ width: '100%', height: 'auto', maxWidth: '250px' }} // Increased maxWidth to 250px
           />
         </div>
         <form onSubmit={formik.handleSubmit}>

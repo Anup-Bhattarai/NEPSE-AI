@@ -17,13 +17,12 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ['User', 'ASdmin']
+    enum: ['User', 'Admin']
   },
   password: { 
     type: String
   }
 });
-
 
 const User = mongoose.model('User', userSchema);
 
