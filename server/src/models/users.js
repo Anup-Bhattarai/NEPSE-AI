@@ -5,7 +5,18 @@ const userSchema = new Schema({
   fullname: { type: String, required: true }, 
   email: { type: String, required: true, unique: true },
   phoneNo: { type: Number, required: true },
-  gender: { type: String, required: true },
+  gender: {
+    type: String,
+    enum : ['Male','Female','Others'],
+    
+},
+role: {
+  
+  enum : ['User','Admin']
+  
+},
+
+ 
   password: { type: String, required: true }
 });
 
