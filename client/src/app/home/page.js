@@ -6,7 +6,7 @@ import { Button, Input } from "@nextui-org/react";
 import Link from "next/link";
 import * as Yup from "yup";
 
-// Validation schema for form
+
 const loginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string().min(6, "Too Short!").max(50, "Too Long!").required("Required"),
@@ -28,28 +28,28 @@ const LoginPage = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-500 to-red-500">
       <form
         onSubmit={formik.handleSubmit}
-        className="bg-white p-10 rounded-lg shadow-xl max-w-lg w-full"
+        className="bg-white p-6 rounded-lg shadow-md max-w-sm w-full"
       >
-        <div className="flex flex-col items-center mb-8">
-          <img src="/nepseai.png" alt="Stock Logo" width={240} height={120} className="rounded mb-6" />
+        <div className="flex flex-col items-center mb-4">
+          <img src="/nepseai.png" alt="Stock Logo" width={180} height={90} className="rounded mb-4" />
         </div>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
           <div className="relative">
             <Input
               isRequired
               type="email"
-              placeholder="Enter your Email"
+              placeholder="Email"
               id="email"
               name="email"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.email}
-              className="w-full border-2 border-blue-500 rounded-md px-4 py-3 bg-gray-100"
+              className="w-full border border-blue-500 rounded-md px-3 py-2 bg-gray-100 text-sm"
               autoComplete="email"
             />
             {formik.touched.email && formik.errors.email ? (
-              <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
+              <div className="text-red-500 text-xs mt-1">{formik.errors.email}</div>
             ) : null}
           </div>
 
@@ -59,41 +59,41 @@ const LoginPage = () => {
               id="password"
               name="password"
               type="password"
-              placeholder="Enter your Password"
+              placeholder="Password"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.password}
-              className="w-full border-2 border-blue-500 rounded-md px-4 py-3 bg-gray-100"
+              className="w-full border border-blue-500 rounded-md px-3 py-2 bg-gray-100 text-sm"
               autoComplete="current-password"
             />
             {formik.touched.password && formik.errors.password ? (
-              <div className="text-red-500 text-sm mt-1">{formik.errors.password}</div>
+              <div className="text-red-500 text-xs mt-1">{formik.errors.password}</div>
             ) : null}
           </div>
         </div>
 
-        <p className="text-center text-green-600 mt-4">
+        <p className="text-center text-green-600 mt-2">
           <Link href="/forgot-password" className="hover:underline">
             Forgot Password?
           </Link>
         </p>
 
-        <Button type="submit" className="w-full bg-green-600 text-white py-3 px-6 rounded-md hover:bg-green-700 mt-4">
+        <Button type="submit" className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 mt-4 text-sm">
           Login
         </Button>
 
-        <div className="relative flex py-4 items-center mt-6">
+        <div className="relative flex py-2 items-center mt-4">
           <div className="flex-grow border-t border-gray-300"></div>
-          <span className="flex-shrink mx-4 text-gray-400">OR</span>
+          <span className="flex-shrink mx-4 text-gray-400 text-xs">OR</span>
           <div className="flex-grow border-t border-gray-300"></div>
         </div>
 
-        <Button className="w-full bg-white border border-gray-300 py-3 rounded-xl flex items-center justify-center mt-2 hover:bg-gray-100">
+        <Button className="w-full bg-white border border-gray-300 py-2 rounded-md flex items-center justify-center mt-2 hover:bg-gray-100 text-sm">
           <svg
-            className="mr-3"
+            className="mr-2"
             xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="25"
+            width="20"
+            height="20"
             viewBox="0 0 48 48"
           >
             <path
@@ -116,12 +116,12 @@ const LoginPage = () => {
           Sign Up with Google
         </Button>
 
-        <Button className="w-full bg-white border border-gray-300 py-3 rounded-xl flex items-center justify-center mt-2 hover:bg-gray-100">
+        <Button className="w-full bg-white border border-gray-300 py-2 rounded-md flex items-center justify-center mt-2 hover:bg-gray-100 text-sm">
           <svg
-            className="mr-3"
+            className="mr-2"
             xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="25"
+            width="20"
+            height="20"
             viewBox="0 0 48 48"
           >
             <path
@@ -148,7 +148,7 @@ const LoginPage = () => {
           Sign Up with Microsoft
         </Button>
 
-        <p className="text-center text-gray-600 mt-4">
+        <p className="text-center text-gray-600 mt-4 text-sm">
           Don’t have an account yet?{" "}
           <span className="text-green-600 hover:underline">
             <Link href="/register">Sign Up</Link>
